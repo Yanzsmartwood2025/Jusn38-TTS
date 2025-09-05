@@ -821,6 +821,17 @@ async def api_version():
 # -----------------------------------------------------------------------------
 
 
+@app.route("/Jusn38_TTS")
+async def app_tts_ui():
+    """TTS UI page."""
+    return await render_template(
+        "Jusn38_TTS.html",
+        default_language=_DEFAULT_LANGUAGE,
+        preferred_voices=_VOICE_ALIASES.get(_DEFAULT_LANGUAGE, []),
+        cache=(_CACHE_DIR is not None),
+    )
+
+
 @app.route("/")
 async def app_index():
     """Test page."""
